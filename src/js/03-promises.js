@@ -22,7 +22,7 @@ function onCreatePromise(event) {
   let inputStep = Number(step.value);
   let inputAmount = Number(amount.value);
 
-  for(let i = inputDelay; i <= inputAmount; i += inputStep){
+  for(let i = 1; i <= inputAmount; i += 1){
     inputDelay += inputStep;
 
   createPromise(inputAmount, inputDelay)
