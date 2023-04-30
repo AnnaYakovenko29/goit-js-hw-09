@@ -25,7 +25,7 @@ function onCreatePromise(event) {
   for(let i = 1; i <= inputAmount; i += 1){
     inputDelay += inputStep;
 
-  createPromise(inputAmount, inputDelay)
+  createPromise(i, inputDelay)
   .then(({ position, delay }) => {
     console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
   })
