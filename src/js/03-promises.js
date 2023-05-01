@@ -4,7 +4,7 @@ formEl.addEventListener('click', onCreatePromise)
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
-    const shouldResolve = Math.random() > 0.3;
+    const shouldResolve = Math.random() < 0.3;
     setTimeout(() => {
     if (shouldResolve) {
       resolve({position, delay})
@@ -23,8 +23,11 @@ function onCreatePromise(event) {
   let inputAmount = Number(amount.value);
 
   for(let i = 1; i <= inputAmount; i += 1){
-    inputDelay += inputStep;
-
+    if(i > 1) {
+      inputDelay += inputStep;
+    }
+    // console.log(inputDelay);
+  
   createPromise(i, inputDelay)
   .then(({ position, delay }) => {
     console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
